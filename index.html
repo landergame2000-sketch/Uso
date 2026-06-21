@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ابر درایو - پشتیبانی از ۲۰۰+ فرمت</title>
+    
+    <!-- فونت وزیرمتن -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <!-- فونت Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- فونت انگلیسی Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== CSS یکسان با قبل ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazirmatn', 'Poppins', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .glass-container {
+            width: 100%;
+            max-width: 1200px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 30px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            color: #fff;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 12px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(245, 87, 108, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-icon:hover {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .logo-text {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .logo-text span {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .storage-info {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px 25px;
+            border-radius: 50px;
+            color: #fff;
+            font-size: 0.95rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .storage-info i {
+            color: #f093fb;
+        }
+
+        .upload-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .upload-section:hover {
+            border-color: #f093fb;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .upload-btn-wrapper input[type=file] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .upload-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-family: 'Vazirmatn', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .upload-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+        }
+
+        .upload-btn i {
+            font-size: 1.3rem;
+        }
+
+        .upload-info {
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        .toolbar {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 200px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 20px 12px 45px;
+            border: none;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 0.95rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .search-box input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .search-box input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .search-box i {
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .filter-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            box-shadow: 0 10px 30px rgba(245, 87, 108, 0.4);
+        }
+
+        .file-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .file-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .file-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .file-item .file-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .file-item .file-name {
+            color: #fff;
+            font-size: 0.95rem;
+            margin: 10px 0;
+            word-break: break-word;
+            font-weight: 500;
+        }
+
+        .file-item .file-size {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.8rem;
+        }
+
+        .file-item .file-date {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.7rem;
+            margin-top: 5px;
+        }
+
+        .file-item .delete-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(255, 0, 0, 0.3);
+            border: none;
+            color: #fff;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        .file-item:hover .delete-btn {
+            opacity: 1;
+        }
+
+        .file-item .delete-btn:hover {
+            background: rgba(255, 0, 0, 0.7);
+            transform: scale(1.1);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .empty-state i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .empty-state h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 30px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 0, 0, 0.5);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            color: #fff;
+        }
+
+        .modal-body .file-preview {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .modal-body .file-preview i {
+            font-size: 5rem;
+            margin-bottom: 20px;
+        }
+
+        .modal-body .file-details {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ===== برچسب فرمت ===== */
+        .format-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.65rem;
+            color: rgba(255,255,255,0.8);
+            margin-top: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            .glass-container {
+                padding: 15px;
+            }
+            
+            .header {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .storage-info {
+                font-size: 0.8rem;
+                padding: 10px 15px;
+            }
+            
+            .file-list {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .file-list {
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+                gap: 10px;
+            }
+            
+            .file-item {
+                padding: 15px;
+            }
+            
+            .file-item .file-icon {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="glass-container">
+        <!-- هدر -->
+        <div class="header">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <div class="logo-text">
+                    <span>USO</span> Drive
+                </div>
+            </div>
+            <div class="storage-info">
+                <i class="fas fa-database"></i>
+                <span>فضای ذخیره‌سازی: <span id="storageCount">0</span> فایل</span>
+                <span style="margin-right:15px;opacity:0.7;">|</span>
+                <i class="fas fa-file"></i>
+                <span>۲۰۰+ فرمت پشتیبانی</span>
+            </div>
+        </div>
+
+        <!-- بخش آپلود -->
+        <div class="upload-section">
+            <div class="upload-btn-wrapper">
+                <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
+                    <i class="fas fa-upload"></i>
+                    آپلود فایل
+                </button>
+                <input type="file" id="fileInput" multiple>
+            </div>
+            <div class="upload-info">
+                <i class="fas fa-check-circle"></i>
+                پشتیبانی از ۲۰۰+ فرمت شامل: تصاویر، ویدئو، صدا، اسناد، فشرده، کد، دیتابیس، گرافیک، سه‌بعدی و...
+            </div>
+        </div>
+
+        <!-- نوار ابزار -->
+        <div class="toolbar">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="جستجوی فایل‌ها...">
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all" onclick="filterFiles('all')">
+                    <i class="fas fa-th-list"></i> همه
+                </button>
+                <button class="filter-btn" data-filter="image" onclick="filterFiles('image')">
+                    <i class="fas fa-image"></i> تصاویر
+                </button>
+                <button class="filter-btn" data-filter="video" onclick="filterFiles('video')">
+                    <i class="fas fa-video"></i> ویدئو
+                </button>
+                <button class="filter-btn" data-filter="audio" onclick="filterFiles('audio')">
+                    <i class="fas fa-music"></i> صدا
+                </button>
+                <button class="filter-btn" data-filter="document" onclick="filterFiles('document')">
+                    <i class="fas fa-file-alt"></i> اسناد
+                </button>
+                <button class="filter-btn" data-filter="code" onclick="filterFiles('code')">
+                    <i class="fas fa-code"></i> کد
+                </button>
+                <button class="filter-btn" data-filter="archive" onclick="filterFiles('archive')">
+                    <i class="fas fa-archive"></i> فشرده
+                </button>
+            </div>
+        </div>
+
+        <!-- لیست فایل‌ها -->
+        <div id="fileList" class="file-list">
+            <div class="empty-state">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <h3>هیچ فایلی آپلود نشده</h3>
+                <p>برای شروع، فایل‌های خود را آپلود کنید</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- مدال پیش‌نمایش -->
+    <div class="modal" id="previewModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body" id="modalBody">
+                <!-- محتوای مدال توسط JS پر می‌شود -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ============================
+        // دیکشنری کامل فرمت‌ها (۲۰۰+ فرمت)
+        // ============================
+        const FORMAT_DB = {
+            // ===== تصاویر =====
+            image: {
+                extensions: ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'tiff', 'tif', 'webp', 'svg', 'ico', 'heic', 'heif', 'raw', 'cr2', 'nef', 'arw', 'dng', 'psd', 'ai', 'eps', 'cdr', 'xcf', 'kra', 'ora', 'svgz'],
+                icon: 'fa-image',
+                category: 'image',
+                label: 'تصویر'
+            },
+            // ===== ویدئو =====
+            video: {
+                extensions: ['mp4', 'avi', 'mkv', 'mov', 'wmv', 'flv', 'webm', 'm4v', 'mpg', 'mpeg', 'm2v', '3gp', '3g2', 'ogv', 'ts', 'mts', 'm2ts', 'vob', 'divx', 'xvid', 'h264', 'h265', 'hevc', 'vp9', 'av1'],
+                icon: 'fa-video',
+                category: 'video',
+                label: 'ویدئو'
+            },
+            // ===== صدا =====
+            audio: {
+                extensions: ['mp3', 'wav', 'aac', 'flac', 'ogg', 'wma', 'm4a', 'aiff', 'alac', 'opus', 'amr', 'mid', 'midi', 'kar', 'mod', 'it', 'xm', 's3m', 'mtm', 'umx'],
+                icon: 'fa-music',
+                category: 'audio',
+                label: 'صدا'
+            },
+            // ===== اسناد =====
+            document: {
+                extensions: ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'txt', 'rtf', 'csv', 'odt', 'ods', 'odp', 'odg', 'odf', 'sxw', 'sxc', 'sxi', 'wpd', 'wps', 'abw', 'pages', 'numbers', 'key', 'md', 'markdown', 'rst', 'tex', 'latex'],
+                icon: 'fa-file-alt',
+                category: 'document',
+                label: 'سند'
+            },
+            // ===== کد =====
+            code: {
+                extensions: ['html', 'htm', 'css', 'scss', 'sass', 'less', 'js', 'ts', 'jsx', 'tsx', 'py', 'rb', 'php', 'java', 'c', 'cpp', 'cxx', 'h', 'hpp', 'cs', 'go', 'rs', 'swift', 'kt', 'kts', 'dart', 'r', 'pl', 'pm', 'lua', 'sql', 'sh', 'bash', 'zsh', 'fish', 'ps1', 'bat', 'cmd', 'xml', 'json', 'yaml', 'yml', 'toml', 'ini', 'cfg', 'conf', 'log', 'vue', 'svelte', 'astro', 'prisma', 'graphql', 'gql', 'proto', 'thrift', 'dockerfile', 'makefile', 'cmake', 'gradle'],
+                icon: 'fa-code',
+                category: 'code',
+                label: 'کد'
+            },
+            // ===== فشرده =====
+            archive: {
+                extensions: ['zip', 'rar', '7z', 'tar', 'gz', 'bz2', 'xz', 'zst', 'lz', 'lzma', 'lz4', 'snappy', 'arj', 'cab', 'iso', 'dmg', 'pkg', 'deb', 'rpm', 'apk', 'jar', 'war', 'ear', 'msi', 'exe', 'msi', 'appimage', 'flatpak', 'snap'],
+                icon: 'fa-archive',
+                category: 'archive',
+                label: 'فشرده'
+            },
+            // ===== دیتابیس =====
+            database: {
+                extensions: ['sqlite', 'db', 'sqlite3', 'db3', 'mdb', 'accdb', 'fdb', 'gdb', 'ib', 'mdf', 'ldf', 'ndf', 'mysqldump', 'pgdump', 'dump', 'sql'],
+                icon: 'fa-database',
+                category: 'database',
+                label: 'دیتابیس'
+            },
+            // ===== گرافیک =====
+            graphics: {
+                extensions: ['psd', 'ai', 'eps', 'cdr', 'svg', 'svgz', 'xcf', 'kra', 'ora', 'blend', 'blend1', '3dm', '3ds', 'max', 'ma', 'mb', 'c4d', 'fbx', 'obj', 'stl', 'ply', 'gltf', 'glb', 'dae', 'x3d', 'vrml', 'wrl', 'step', 'stp', 'iges', 'igs'],
+                icon: 'fa-paint-brush',
+                category: 'graphics',
+                label: 'گرافیک'
+            },
+            // ===== سه‌بعدی =====
+            '3d': {
+                extensions: ['stl', 'obj', 'fbx', 'gltf', 'glb', '3ds', 'max', 'ma', 'mb', 'c4d', 'dae', 'x3d', 'vrml', 'wrl', 'step', 'stp', 'iges', 'igs', 'ply', 'blend', 'blend1', '3dm', 'skp', 'ifc', 'dwg', 'dxf', 'kmz', 'kml'],
+                icon: 'fa-cube',
+                category: '3d',
+                label: 'سه‌بعدی'
+            },
+            // ===== فونت =====
+            font: {
+                extensions: ['ttf', 'otf', 'woff', 'woff2', 'eot', 'fon', 'fnt', 'pfb', 'pfm', 'afm', 'sfd', 'ufo'],
+                icon: 'fa-font',
+                category: 'font',
+                label: 'فونت'
+            },
+            // ===== ایمیل =====
+            email: {
+                extensions: ['eml', 'msg', 'pst', 'ost', 'dbx', 'mbx'],
+                icon: 'fa-envelope',
+                category: 'email',
+                label: 'ایمیل'
+            },
+            // ===== سیستمی =====
+            system: {
+                extensions: ['iso', 'img', 'dmg', 'pkg', 'msi', 'exe', 'com', 'scr', 'cpl', 'sys', 'dll', 'so', 'dylib', 'drv', 'inf', 'reg', 'key'],
+                icon: 'fa-cogs',
+                category: 'system',
+                label: 'سیستمی'
+            },
+            // ===== سایر =====
+            other: {
+                extensions: [],
+                icon: 'fa-file',
+                category: 'other',
+                label: 'سایر'
+            }
+        };
+
+        // ============================
+        // کلاس مدیریت حافظه ابری
+        // ============================
+        class CloudStorage {
+            constructor(dbName = 'CloudDriveDB', storeName = 'files') {
+                this.dbName = dbName;
+                this.storeName = storeName;
+                this.db = null;
+                this.files = [];
+                this.currentFilter = 'all';
+                this.searchQuery = '';
+            }
+
+            async connect() {
+                return new Promise((resolve, reject) => {
+                    const request = indexedDB.open(this.dbName, 1);
+                    
+                    request.onerror = () => reject(request.error);
+                    request.onsuccess = () => {
+                        this.db = request.result;
+                        resolve();
+                    };
+                    
+                    request.onupgradeneeded = (event) => {
+                        const db = event.target.result;
+                        if (!db.objectStoreNames.contains(this.storeName)) {
+                            const store = db.createObjectStore(this.storeName, { 
+                                keyPath: 'id', 
+                                autoIncrement: true 
+                            });
+                            store.createIndex('type', 'type', { unique: false });
+                            store.createIndex('name', 'name', { unique: false });
+                            store.createIndex('date', 'date', { unique: false });
+                            store.createIndex('category', 'category', { unique: false });
+                            store.createIndex('extension', 'extension', { unique: false });
+                        }
+                    };
+                });
+            }
+
+            async saveFile(file) {
+                return new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.onload = async (e) => {
+                        const ext = file.name.split('.').pop().toLowerCase();
+                        const fileInfo = this.getFileInfo(ext);
+                        
+                        const fileData = {
+                            name: file.name,
+                            size: file.size,
+                            type: file.type,
+                            data: e.target.result,
+                            date: new Date().toISOString(),
+                            extension: ext,
+                            category: fileInfo.category,
+                            formatLabel: fileInfo.label,
+                            icon: fileInfo.icon
+                        };
+
+                        try {
+                            const transaction = this.db.transaction([this.storeName], 'readwrite');
+                            const store = transaction.objectStore(this.storeName);
+                            const request = store.add(fileData);
+                            
+                            request.onsuccess = () => {
+                                fileData.id = request.result;
+                                this.files.push(fileData);
+                                resolve(fileData);
+                            };
+                            request.onerror = () => reject(request.error);
+                        } catch (error) {
+                            reject(error);
+                        }
+                    };
+                    reader.onerror = () => reject(reader.error);
+                    reader.readAsDataURL(file);
+                });
+            }
+
+            async getAllFiles() {
+                return new Promise((resolve, reject) => {
+                    const transaction = this.db.transaction([this.storeName], 'readonly');
+                    const store = transaction.objectStore(this.storeName);
+                    const request = store.getAll();
+                    
+                    request.onsuccess = () => {
+                        this.files = request.result || [];
+                        resolve(this.files);
+                    };
+                    request.onerror = () => reject(request.error);
+                });
+            }
+
+            async deleteFile(id) {
+                return new Promise((resolve, reject) => {
+                    const transaction = this.db.transaction([this.storeName], 'readwrite');
+                    const store = transaction.objectStore(this.storeName);
+                    const request = store.delete(id);
+                    
+                    request.onsuccess = () => {
+                        this.files = this.files.filter(f => f.id !== id);
+                        resolve();
+                    };
+                    request.onerror = () => reject(request.error);
+                });
+            }
+
+            // ===== دریافت اطلاعات فرمت =====
+            getFileInfo(extension) {
+                const ext = extension.toLowerCase();
+                for (const [key, format] of Object.entries(FORMAT_DB)) {
+                    if (format.extensions.includes(ext)) {
+                        return {
+                            category: format.category,
+                            icon: format.icon,
+                            label: format.label,
+                            formatKey: key
+                        };
+                    }
+                }
+                return {
+                    category: 'other',
+                    icon: 'fa-file',
+                    label: 'سایر',
+                    formatKey: 'other'
+                };
+            }
+
+            // ===== دریافت آیکون =====
+            getFileIcon(file) {
+                return file.icon || this.getFileInfo(file.extension).icon;
+            }
+
+            // ===== دریافت دسته‌بندی =====
+            getFileCategory(file) {
+                return file.category || this.getFileInfo(file.extension).category;
+            }
+
+            // ===== دریافت برچسب =====
+            getFileLabel(file) {
+                return file.formatLabel || this.getFileInfo(file.extension).label;
+            }
+
+            // ===== فرمت حجم =====
+            formatSize(bytes) {
+                if (bytes === 0) return '0 B';
+                const k = 1024;
+                const sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+            }
+
+            // ===== فیلتر کردن =====
+            getFilteredFiles(filter, query) {
+                let filtered = this.files;
+                
+                if (filter && filter !== 'all') {
+                    filtered = filtered.filter(f => this.getFileCategory(f) === filter);
+                }
+                
+                if (query && query.trim()) {
+                    const q = query.trim().toLowerCase();
+                    filtered = filtered.filter(f => 
+                        f.name.toLowerCase().includes(q) ||
+                        f.extension.toLowerCase().includes(q) ||
+                        (f.formatLabel && f.formatLabel.includes(q))
+                    );
+                }
+                
+                return filtered;
+            }
+        }
+
+        // ============================
+        // برنامه اصلی
+        // ============================
+        const storage = new CloudStorage();
+        let currentFilter = 'all';
+        let searchQuery = '';
+
+        function renderFiles() {
+            const fileList = document.getElementById('fileList');
+            const filtered = storage.getFilteredFiles(currentFilter, searchQuery);
+            
+            if (filtered.length === 0) {
+                fileList.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas ${searchQuery ? 'fa-search' : 'fa-cloud-upload-alt'}"></i>
+                        <h3>${searchQuery ? 'هیچ فایلی یافت نشد' : 'هیچ فایلی آپلود نشده'}</h3>
+                        <p>${searchQuery ? 'جستجوی خود را تغییر دهید' : 'برای شروع، فایل‌های خود را آپلود کنید'}</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            fileList.innerHTML = filtered.map(file => {
+                const icon = storage.getFileIcon(file);
+                const category = storage.getFileCategory(file);
+                const label = storage.getFileLabel(file);
+                const colorMap = {
+                    'image': '#f093fb',
+                    'video': '#4facfe',
+                    'audio': '#43e97b',
+                    'document': '#fa709a',
+                    'code': '#fee140',
+                    'archive': '#ff6b6b',
+                    'database': '#a8edea',
+                    'graphics': '#dda0dd',
+                    '3d': '#a8e6cf',
+                    'font': '#ffb347',
+                    'email': '#ff6f61',
+                    'system': '#6c757d',
+                    'other': '#ced4da'
+                };
+                const color = colorMap[category] || '#fff';
+                
+                return `
+                    <div class="file-item" onclick="previewFile(${file.id})">
+                        <button class="delete-btn" onclick="event.stopPropagation(); deleteFile(${file.id})">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                        <div class="file-icon" style="color:${color};">
+                            <i class="fas ${icon}"></i>
+                        </div>
+                        <div class="file-name">${file.name}</div>
+                        <div class="file-size">${storage.formatSize(file.size)}</div>
+                        <div class="file-date">${new Date(file.date).toLocaleDateString('fa-IR')}</div>
+                        <span class="format-badge">${label}</span>
+                    </div>
+                `;
+            }).join('');
+            
+            document.getElementById('storageCount').textContent = storage.files.length;
+        }
+
+        async function uploadFiles(files) {
+            for (const file of files) {
+                try {
+                    await storage.saveFile(file);
+                } catch (error) {
+                    console.error('خطا در آپلود:', error);
+                    alert(`خطا در آپلود فایل ${file.name}: ${error.message}`);
+                }
+            }
+            renderFiles();
+        }
+
+        async function deleteFile(id) {
+            if (!confirm('آیا از حذف این فایل اطمینان دارید؟')) return;
+            try {
+                await storage.deleteFile(id);
+                renderFiles();
+            } catch (error) {
+                console.error('خطا در حذف:', error);
+                alert('خطا در حذف فایل');
+            }
+        }
+
+        function filterFiles(filter) {
+            currentFilter = filter;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.filter === filter);
+            });
+            renderFiles();
+        }
+
+        function searchFiles() {
+            searchQuery = document.getElementById('searchInput').value;
+            renderFiles();
+        }
+
+        function previewFile(id) {
+            const file = storage.files.find(f => f.id === id);
+            if (!file) return;
+            
+            const modal = document.getElementById('previewModal');
+            const body = document.getElementById('modalBody');
+            
+            const category = storage.getFileCategory(file);
+            const icon = storage.getFileIcon(file);
+            const label = storage.getFileLabel(file);
+            
+            let previewContent = '';
+            
+            // پشتیبانی از پیش‌نمایش فرمت‌های مختلف
+            if (category === 'image') {
+                previewContent = `<img src="${file.data}" style="max-width:100%; max-height:400px; border-radius:15px; box-shadow:0 10px 30px rgba(0,0,0,0.3);">`;
+            } else if (category === 'video') {
+                previewContent = `<video controls style="max-width:100%; max-height:400px; border-radius:15px;">
+                    <source src="${file.data}" type="${file.type}">
+                    مرورگر شما از نمایش ویدئو پشتیبانی نمی‌کند.
+                </video>`;
+            } else if (category === 'audio') {
+                previewContent = `
+                    <div style="padding:30px; background:rgba(0,0,0,0.2); border-radius:20px;">
+                        <i class="fas fa-music" style="font-size:3rem; color:#43e97b;"></i>
+                        <audio controls style="width:100%; margin-top:15px;">
+                            <source src="${file.data}" type="${file.type}">
+                            مرورگر شما از نمایش صدا پشتیبانی نمی‌کند.
+                        </audio>
+                    </div>
+                `;
+            } else if (['txt', 'md', 'markdown', 'rst', 'log', 'xml', 'json', 'yaml', 'yml', 'toml', 'ini', 'cfg', 'conf', 'sql'].includes(file.extension)) {
+                // نمایش فایل‌های متنی
+                try {
+                    const base64 = file.data.split(',')[1];
+                    const text = decodeURIComponent(escape(atob(base64)));
+                    previewContent = `
+                        <div style="background:rgba(0,0,0,0.4); padding:20px; border-radius:15px; max-height:400px; overflow:auto; text-align:left; direction:ltr; font-family:'Courier New',monospace; font-size:0.85rem; white-space:pre-wrap; word-break:break-all;">
+                            ${text}
+                        </div>
+                    `;
+                } catch {
+                    previewContent = `<i class="fas ${icon}" style="font-size:5rem; color:#fee140;"></i>`;
+                }
+            } else if (['pdf'].includes(file.extension)) {
+                previewContent = `
+                    <div style="padding:20px;">
+                        <i class="fas fa-file-pdf" style="font-size:4rem; color:#fa709a;"></i>
+                        <p style="margin-top:10px;">برای مشاهده PDF، فایل را دانلود کنید</p>
+                        <embed src="${file.data}" type="application/pdf" style="width:100%; height:400px; border-radius:15px; margin-top:10px;">
+                    </div>
+                `;
+            } else {
+                previewContent = `
+                    <div style="padding:30px;">
+                        <i class="fas ${icon}" style="font-size:5rem; color:#fff;"></i>
+                        <p style="margin-top:15px; opacity:0.7;">پیش‌نمایش برای این فرمت در دسترس نیست</p>
+                    </div>
+                `;
+            }
+            
+            body.innerHTML = `
+                <div class="file-preview">
+                    ${previewContent}
+                    <h2 style="margin-top:15px; font-size:1.3rem;">${file.name}</h2>
+                    <span class="format-badge" style="font-size:0.9rem; padding:4px 15px;">${label}</span>
+                    <div class="file-details">
+                        <p><i class="fas fa-hdd"></i> حجم: ${storage.formatSize(file.size)}</p>
+                        <p><i class="fas fa-calendar"></i> تاریخ: ${new Date(file.date).toLocaleDateString('fa-IR')}</p>
+                        <p><i class="fas fa-tag"></i> نوع: ${file.type || 'ناشناخته'}</p>
+                        <p><i class="fas fa-file"></i> پسوند: .${file.extension || 'بدون پسوند'}</p>
+                        <p><i class="fas fa-folder"></i> دسته‌بندی: ${label}</p>
+                    </div>
+                    <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:15px;">
+                        <button onclick="downloadFile(${file.id})" style="padding:10px 30px; border:none; border-radius:50px; background:linear-gradient(135deg,#43e97b,#38f9d7); color:#000; cursor:pointer; font-family:'Vazirmatn',sans-serif; font-weight:600;">
+                            <i class="fas fa-download"></i> دانلود
+                        </button>
+                        <button onclick="copyFileLink(${file.id})" style="padding:10px 30px; border:none; border-radius:50px; background:rgba(255,255,255,0.2); color:#fff; cursor:pointer; font-family:'Vazirmatn',sans-serif;">
+                            <i class="fas fa-link"></i> کپی لینک
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            modal.classList.add('active');
+        }
+
+        function downloadFile(id) {
+            const file = storage.files.find(f => f.id === id);
+            if (!file) return;
+            
+            const link = document.createElement('a');
+            link.href = file.data;
+            link.download = file.name;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function copyFileLink(id) {
+            const file = storage.files.find(f => f.id === id);
+            if (!file) return;
+            
+            // ساخت لینک موقت (فقط برای نمایش - در واقعیت باید سرور داشته باشیم)
+            const fakeLink = `clouddrive://file/${file.id}/${encodeURIComponent(file.name)}`;
+            navigator.clipboard.writeText(fakeLink).then(() => {
+                alert('لینک فایل در کلیپ‌بورد کپی شد!');
+            }).catch(() => {
+                prompt('لینک فایل:', fakeLink);
+            });
+        }
+
+        function closeModal() {
+            document.getElementById('previewModal').classList.remove('active');
+        }
+
+        document.getElementById('previewModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            if (this.files.length > 0) {
+                uploadFiles(this.files);
+                this.value = '';
+            }
+        });
+
+        document.getElementById('searchInput').addEventListener('input', searchFiles);
+
+        // کشیدن و رها کردن
+        document.addEventListener('dragover', (e) => e.preventDefault());
+        document.addEventListener('drop', (e) => {
+            e.preventDefault();
+            if (e.dataTransfer.files.length > 0) {
+                uploadFiles(e.dataTransfer.files);
+            }
+        });
+
+        // بارگذاری اولیه
+        (async function init() {
+            try {
+                await storage.connect();
+                await storage.getAllFiles();
+                renderFiles();
+            } catch (error) {
+                console.error('خطا در بارگذاری:', error);
+                alert('خطا در اتصال به حافظه');
+            }
+        })();
+
+        // ===== نمایش تعداد فرمت‌های پشتیبانی =====
+        console.log('📁 تعداد فرمت‌های پشتیبانی شده:', 
+            Object.values(FORMAT_DB).reduce((acc, f) => acc + f.extensions.length, 0)
+        );
+    </script>
+</body>
+</html>
